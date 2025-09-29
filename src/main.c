@@ -3,6 +3,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include "randomhash.h"
 
 struct stat st = {0};
 
@@ -10,6 +11,7 @@ struct stat st = {0};
 
 int cmd_init(void) {
     printf("Initialized empty NVCIS.001 repository\n");
+    printf("%s\n", random_hash(20));
     mkdir(".git", 0700);
     return 0;
 }
