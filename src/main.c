@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
+struct stat st = {0};
+
+
+
+int cmd_init(void) {
+    printf("Initialized empty NVCIS.001 repository\n");
+    mkdir(".git", 0700);
+    return 0;
+}
+
+int cmd_add(const char *filename) {
+    printf("Adding file: %s\n", filename);
+    
+    return 0;
+}
+
+int cmd_commit(const char *message) {
+    printf("Commit with message: %s\n", message);
+    
+    return 0;
+}
+
+int cmd_log(void) {
+    printf("Showing commit log\n");
+
+    return 0;
+}
+
+int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        fprintf(stderr, "Usage: %s <command> [options]\n", argv[0]);
+        return 1;
+    }
+
+    if (strcmp(argv[1], "init") == 0) {
+        return cmd_init();
+    } else if (strcmp(argv[1], "add") == 0) {
+        if (argc < 3) {
+            fprintf(stderr, "mygit add <file>\n");
+            return 1;
+        }
+        return cmd_add(argv[2]);
+    } else if (strcmp(argv[1], "commit") == 0) {
+        if (argc < 4 || strcmp(argv[2], "-m") != 0) {
+            fprintf(stderr, "mygit commit -m \"message\"\n");
+            return 1;
+        }
+        return cmd_commit(argv[3]);
+    } else if (strcmp(argv[1], "log") == 0) {
+        return cmd_log();
+    } else {
+        fprintf(stderr, "Unknown command: %s\n", argv[1]);
+        return 1;
+    }
+}
