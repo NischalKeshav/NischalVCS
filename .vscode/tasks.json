@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build mygit",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "gcc ${workspaceFolder}/src/*.c -I${workspaceFolder}/include -o ${workspaceFolder}/mygit"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}

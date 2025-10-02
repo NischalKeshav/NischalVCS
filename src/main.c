@@ -4,6 +4,8 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include "randomhash.h"
+#include "nvcsignore.h"
+
 
 struct stat st = {0};
 
@@ -12,7 +14,14 @@ struct stat st = {0};
 int cmd_init(void) {
     printf("Initialized empty NVCIS.001 repository\n");
     printf("%s\n", random_hash(20));
-    mkdir(".git", 0700);
+    mkdir(".nvcs", 0700);
+    mkdir(".nvcs/objects", 0700);
+    mkdir(".nvcs/refs", 0700);
+    mkdir(".nvcs/refs/commits", 0700);
+    if (write_nvcsignore() != 0) {
+        fprintf(stderr, "Warning: failed to write .nvcsignore\n");
+        /* Not fatal: repository created successfully */
+    }
     return 0;
 }
 
