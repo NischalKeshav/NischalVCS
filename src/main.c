@@ -19,8 +19,8 @@ int cmd_init(void) {
     mkdir(".nvcs/refs", 0700);
     mkdir(".nvcs/refs/commits", 0700);
     if (write_nvcsignore() != 0) {
-        fprintf(stderr, "Warning: failed to write .nvcsignore\n");
-        /* Not fatal: repository created successfully */
+        fprintf(stderr, "Warning: failed to write .nvcsignore\n Repo created without .nvcsignore\n");
+
     }
     return 0;
 }
