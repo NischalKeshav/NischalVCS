@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include "randomhash.h"
 #include "nvcsignore.h"
-
+#include "convertJSONtoStruct.h"
 
 struct stat st = {0};
 
@@ -39,7 +39,13 @@ int cmd_commit(const char *message) {
 
 int cmd_log(void) {
     printf("Showing commit log\n");
-
+    
+    struct Index *index = loadIndexFromFile("new.json");
+    if (index) {
+        displayIndex(index);
+        freeIndex(index);
+    }
+    
     return 0;
 }
 
