@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/types.h>
+#include <stdlib.h>
+#include <stdbool.h>
 #include <sys/stat.h>
 #include <unistd.h>
 #include "randomhash.h"
 #include "nvcsignore.h"
 #include "convertJSONtoStruct.h"
-
+#include "CreateCommit.h"
+#include "CompareFileChanges.h"
 struct stat st = {0};
 
 
@@ -32,7 +35,7 @@ int cmd_add(const char *filename) {
 }
 
 int cmd_commit(const char *message) {
-    printf("Commit with message: %s\n", message);
+    printf("Commit with message helefjds;lkf: %s\n", message);
     
     return 0;
 }
@@ -66,6 +69,7 @@ int main(int argc, char *argv[]) {
     } else if (strcmp(argv[1], "commit") == 0) {
         if (argc < 4 || strcmp(argv[2], "-m") != 0) {
             fprintf(stderr, "mygit commit -m \"message\"\n");
+            cmd_commit("hello");
             return 1;
         }
         return cmd_commit(argv[3]);

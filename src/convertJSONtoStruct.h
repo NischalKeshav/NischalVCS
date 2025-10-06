@@ -4,27 +4,27 @@
 #include <stddef.h>
 
 // Single entry in the index
+// An indexEntry holds the changes for one file in a commit
 struct IndexEntry {
     char *path;   // filename
     char *hash;   // blob SHA-1
     int mode;     // permissions/mode
 };
 
-// Whole index
+
 struct Index {
     struct IndexEntry *entries;
     size_t count;
 };
 
 /**
- * Parse JSON text into an Index structure
  * @param jsonText - JSON string to parse
  * @return Pointer to newly allocated Index, or NULL on error
  */
 struct Index *parseIndexJSON(const char *jsonText);
 
 /**
- * Load and parse index from a JSON file
+
  * @param filename - Path to the JSON file
  * @return Pointer to newly allocated Index, or NULL on error
  */
