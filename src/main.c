@@ -10,6 +10,7 @@
 #include "convertJSONtoStruct.h"
 #include "CreateCommit.h"
 #include "CompareFileChanges.h"
+#include "GetAllFilesInDir.h"
 struct stat st = {0};
 
 
@@ -36,7 +37,7 @@ int cmd_add(const char *filename) {
 
 int cmd_commit(const char *message) {
     printf("Commit with message helefjds;lkf: %s\n", message);
-    
+    GetAllFilesInDir();
     return 0;
 }
 

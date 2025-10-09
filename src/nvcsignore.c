@@ -48,3 +48,4 @@ int write_nvcsignore(void) {
     fclose(f);
     return 0;
 }
+size_t capacity = 10;
