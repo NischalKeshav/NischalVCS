@@ -1,0 +1,8 @@
+.nvcs  
+.o
+.DS_Store   
+build/  
+*.exe
+*.out
+*.so
+*.a     
