@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cJSON.h"
-#include "convertJSONtoStruct.h"  // Add this
+#include "JSONutils.h"
 
 struct Index *parseIndexJSON(const char *jsonText) {
     cJSON *root = cJSON_Parse(jsonText);

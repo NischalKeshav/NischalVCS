@@ -22,6 +22,6 @@ typedef struct {
  * the FilePaths structure, but it is declared here for future use.
  * * @return int 0 upon successful directory read, non-zero otherwise.
  */
-int GetAllFilesInDir();
+FilePaths *GetAllFilesInDir();
 
 #endif // FILE_UTILS_H

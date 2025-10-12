@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include "randomhash.h"
 #include "nvcsignore.h"
-#include "convertJSONtoStruct.h"
+#include "JSONutils.h"
 #include "CreateCommit.h"
 #include "CompareFileChanges.h"
 #include "GetAllFilesInDir.h"

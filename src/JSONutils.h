@@ -42,4 +42,5 @@ void displayIndex(const struct Index *index);
  */
 void freeIndex(struct Index *index);
 
+
 #endif // CONVERTJSONTOSTRUCT_H
