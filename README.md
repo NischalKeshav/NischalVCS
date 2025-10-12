@@ -1,22 +1,24 @@
-# Nischal's Version Control System
-This is a personal project, where I attempted to create a clone of git.  The requierements I set for myself are below. 
+# Nischal's Version Control System  
 
+This is a personal project where I built a simplified version of Git. The goal was to understand how a version control system works at a low level, including file tracking, commits, and branching. The features below represent the current progress of the project.  
 
+---
 
-# Goals
-1. Initialising function("git commit") : complete
-2. File adding(git add .)              : complete
-3. Commiting(git commit -m)            : In progress
-4. Branching(git checkout -b "Name").  : In progress
-5. Reverting(git revert)               : In progress
+## Goals  
+- **Initializing function (`git init`)** – Complete  
+- **File adding (`git add .`)** – Complete  
+- **Committing (`git commit -m`)** – In progress  
+- **Branching (`git checkout -b "name"`)** – In progress  
+- **Reverting (`git revert`)** – In progress  
 
+---
 
-# Usage 
-1. Download code
-2. Build File
-Run "make in the Terminal
-3. Change Directory to your test folder
-4. Run the mygit.exe file
-# Dependencies
-This VCS requieres dirent.h, which means that only POSIX compliant systems will support this software.  I was building this on a Macbook, so it was the best choice
+## Usage  
+1. Download the code.  
+2. Build the project by running:  
+   make
+3. Run the executable with ./mygit
 
+##Dependencies
+
+This project uses the dirent.h library, which means it only runs on POSIX-compliant systems such as macOS and Linux. 
