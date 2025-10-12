@@ -19,6 +19,6 @@ This is a personal project where I built a simplified version of Git. The goal w
    make
 3. Run the executable with ./mygit
 
-##Dependencies
+## Dependencies
 
 This project uses the dirent.h library, which means it only runs on POSIX-compliant systems such as macOS and Linux. 
