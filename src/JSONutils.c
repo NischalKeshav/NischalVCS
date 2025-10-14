@@ -109,3 +109,46 @@ void freeIndex(struct Index *index) {
     free(index->entries);
     free(index);
 }
+int WriteIndexToJSONFile(const struct Index *index, const char *filename) {
+    if (!index || !filename) return -1;
+
+    cJSON *root = cJSON_CreateObject();
+    if (!root) return -1;
+
+    cJSON *files = cJSON_CreateObject();
+    if (!files) {
+        cJSON_Delete(root);
+        return -1;
+    }
+
+    for (size_t i = 0; i < index->count; i++) {
+        cJSON *fileObj = cJSON_CreateObject();
+        if (!fileObj) {
+            cJSON_Delete(root);
+            return -1;
+        }
+
+        cJSON_AddStringToObject(fileObj, "hash", index->entries[i].hash);
+        cJSON_AddNumberToObject(fileObj, "mode", index->entries[i].mode);
+        cJSON_AddItemToObject(files, index->entries[i].path, fileObj);
+    }
+
+    cJSON_AddItemToObject(root, "files", files);
+    cJSON_AddNumberToObject(root, "count", index->count);
+
+    char *jsonString = cJSON_Print(root);
+    cJSON_Delete(root);
+    if (!jsonString) return -1;
+
+    FILE *fp = fopen(filename, "w");
+    if (!fp) {
+        free(jsonString);
+        return -1;
+    }
+
+    fwrite(jsonString, sizeof(char), strlen(jsonString), fp);
+    fclose(fp);
+    free(jsonString);
+
+    return 0;
+}

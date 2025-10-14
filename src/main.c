@@ -11,9 +11,8 @@
 #include "CreateCommit.h"
 #include "CompareFileChanges.h"
 #include "GetAllFilesInDir.h"
-
+#include "CreateInitCommit.h"
 struct stat st = {0};
-
 
 
 int cmd_init(void) {
@@ -38,14 +37,14 @@ int cmd_add(const char *filename) {
 
 int cmd_commit(const char *message) {
     printf("Commit with message %s\n", message);
-    CreateCommit(message);
+    CreateInitCommit(message);
     return 0;
 }
 
 int cmd_log(void) {
     printf("Showing commit log\n");
     
-    struct Index *index = loadIndexFromFile("new.json");
+    struct Index *index = loadIndexFromFile("new3.json");
     if (index) {
         displayIndex(index);
         freeIndex(index);

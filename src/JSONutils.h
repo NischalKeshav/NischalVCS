@@ -3,6 +3,9 @@
 
 #include <stddef.h>
 
+
+
+
 // Single entry in the index
 // An indexEntry holds the changes for one file in a commit
 struct IndexEntry {
@@ -16,6 +19,9 @@ struct Index {
     struct IndexEntry *entries;
     size_t count;
 };
+
+
+#define NULL_INDEX (struct Index){ .entries = NULL, .count = 0 }
 
 /**
  * @param jsonText - JSON string to parse
@@ -41,6 +47,6 @@ void displayIndex(const struct Index *index);
  * @param index - Pointer to Index to free
  */
 void freeIndex(struct Index *index);
-
+int WriteIndexToJSONFile(const struct Index *index, const char *filename);
 
 #endif // CONVERTJSONTOSTRUCT_H

@@ -14,11 +14,12 @@ typedef struct {
     char **paths;
     size_t count;
     size_t capacity;
+    
 } FilePaths;
 
 /**
  * @brief Lists and prints all files and directories in the current directory.
- * * Note: This implementation currently prints to stdout and does not use 
+ * * Note: This implementation currently prints to stdout and does not use  \n
  * the FilePaths structure, but it is declared here for future use.
  * * @return int 0 upon successful directory read, non-zero otherwise.
  */

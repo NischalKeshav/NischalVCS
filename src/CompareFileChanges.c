@@ -5,7 +5,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include "cJSON.h"
-#include "convertJSONtoStruct.h"
+#include "JSONutils.h"
 #include "randomhash.h"
 
 
