@@ -54,7 +54,7 @@ int CreateInitCommit() {
     }
     
     // Write to file
-    int result = WriteIndexToJSONFile(index, "new3.json");
+    int result = WriteIndexToJSONFile(index, "InitCommit.json");
     
     // Clean up
     freeIndex(index);
