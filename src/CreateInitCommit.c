@@ -17,7 +17,7 @@ struct IndexEntry createEntry(const char *path, const char *hash, int mode) {
     return entry;
 }
 
-// Create a test index with sample entries
+
 struct Index *createTestIndex() {
     struct Index *index = malloc(sizeof(struct Index));
     if (!index) {
@@ -25,7 +25,7 @@ struct Index *createTestIndex() {
         return NULL;
     }
     
-    // Allocate space for 3 entries
+
     index->count = 3;
     index->entries = malloc(sizeof(struct IndexEntry) * index->count);
     if (!index->entries) {

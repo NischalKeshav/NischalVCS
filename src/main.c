@@ -12,6 +12,7 @@
 #include "CompareFileChanges.h"
 #include "GetAllFilesInDir.h"
 #include "CreateInitCommit.h"
+#include "ManageHeadfile.h"
 struct stat st = {0};
 
 
@@ -22,6 +23,7 @@ int cmd_init(void) {
     mkdir(".nvcs/objects", 0700);
     mkdir(".nvcs/refs", 0700);
     mkdir(".nvcs/refs/commits", 0700);
+    createHeadFile(".nvcs/HEAD", "ref: refs/commits/master");
     if (write_nvcsignore() != 0) {
         fprintf(stderr, "Warning: failed to write .nvcsignore\n Repo created without .nvcsignore\n");
 
