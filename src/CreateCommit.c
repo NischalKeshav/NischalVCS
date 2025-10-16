@@ -8,9 +8,9 @@
 #include "GetAllFilesInDir.h"
 
 
-int CreateCommit(const char *message) {
-    
-    printf("Creating commit with message: %s\n", message);
+int CreateCommit(const char *message,  char *hash) {
+
+    printf("Creating commit with message: %s\n hash: %s\n", message, hash);
     FilePaths *allPaths = GetAllFilesInDir();
     if (!allPaths) {
             fprintf(stderr, "Error: Failed to get file paths\n");

@@ -3,6 +3,6 @@
 
 
 
-int CreateCommit(const char *message);
+int CreateCommit(const char *message, char *hash);
 
 #endif 

@@ -39,8 +39,19 @@ int cmd_add(const char *filename) {
 }
 
 int cmd_commit(const char *message) {
-    printf("Commit with message %s\n", message);
-    CreateInitCommit(message);
+    char *hash = random_hash(20);
+    size_t str_len = strlen(hash) + strlen("refs/commits/") + 1;
+    char *full_ref = malloc(str_len);
+    if (!full_ref) {
+        fprintf(stderr, "Memory allocation failed\n");
+        return -1;
+    }
+    snprintf(full_ref, str_len, "refs/commits/%s", hash);
+    printf("Commit with message %s\n hash: %s\n", message, hash);
+    CreateCommit(message, hash);
+    SetHeadToCommit(".nvcs/HEAD", full_ref);
+    free(hash);
+    free(full_ref);
     return 0;
 }
 
