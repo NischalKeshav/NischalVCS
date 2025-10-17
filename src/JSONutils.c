@@ -3,6 +3,7 @@
 #include <string.h>
 #include "cJSON.h"
 #include "JSONutils.h"
+#include "ManageHeadfile.h"
 
 struct Index *parseIndexJSON(const char *jsonText) {
     cJSON *root = cJSON_Parse(jsonText);
@@ -152,3 +153,4 @@ int WriteIndexToJSONFile(const struct Index *index, const char *filename) {
 
     return 0;
 }
+

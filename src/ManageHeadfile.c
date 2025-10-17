@@ -10,6 +10,9 @@
 #include <unistd.h>
 #include "ManageHeadfile.h"
 #include <stdbool.h>
+
+
+
 int createHeadFile(const char *headFilePath, const char *commitHash) {
     if (access(headFilePath, F_OK) == 0) {
         printf("File '%s' exists.\n", headFilePath);
@@ -41,7 +44,7 @@ char *getCurrentCommitHash(const char *headFilePath) {
         perror("Failed to open HEAD file for reading");
         return NULL;
     }
-    char *commitHash = (char *)malloc(41 * sizeof(char)); // SHA-1 hash length + null terminator
+    char *commitHash = (char *)malloc(41 * sizeof(char)); 
     if (fgets(commitHash, 41, file) == NULL) {
         perror("Failed to read commit hash from HEAD file");
         fclose(file);
@@ -59,3 +62,5 @@ char *getCurrentCommitHash(const char *headFilePath) {
 bool isHeadFileExists(const char *headFilePath) {
     return access(headFilePath, F_OK) == 0;
 }
+
+
