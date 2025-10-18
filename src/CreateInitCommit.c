@@ -35,10 +35,7 @@ struct Index *createTestIndex() {
     }
     
     // Create sample entries
-    index->entries[0] = createEntry("src/main.c", "a1b2c3d4e5f6", 100644);
-    index->entries[1] = createEntry("include/header.h", "f6e5d4c3b2a1", 100644);
-    index->entries[2] = createEntry("README.md", "1234567890ab", 100644);
-    
+
     return index;
 }
 
@@ -46,17 +43,16 @@ int CreateInitCommit() {
     char *message = "Initial commit";
     printf("Creating initial commit with message: %s\n", message);
     
-    // Create test index with entries
+
     struct Index *index = createTestIndex();
     if (!index) {
         fprintf(stderr, "Error: failed to create test index\n");
         return -1;
     }
+
+    int result = WriteIndexToJSONFile(index, ".nvcs/refs/commits/InitCommit.json");
     
-    // Write to file
-    int result = WriteIndexToJSONFile(index, "InitCommit.json");
-    
-    // Clean up
+
     freeIndex(index);
     
     if (result != 0) {

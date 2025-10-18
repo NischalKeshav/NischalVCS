@@ -110,6 +110,7 @@ void freeIndex(struct Index *index) {
     free(index->entries);
     free(index);
 }
+
 int WriteIndexToJSONFile(const struct Index *index, const char *filename) {
     if (!index || !filename) return -1;
 
@@ -154,3 +155,15 @@ int WriteIndexToJSONFile(const struct Index *index, const char *filename) {
     return 0;
 }
 
+struct Index *getCurrentIndex(){
+    char *commitLocation = getCurrentCommitLocation(".nvcs/HEAD");
+    if (!commitLocation) {
+        fprintf(stderr, "Error: could not get current commit location\n");
+        return NULL;
+    }
+    struct Index *index = loadIndexFromFile(commitLocation);
+    parseIndexJSON(commitLocation);
+    free(commitLocation); 
+    freeIndex(index);
+    return index;
+}

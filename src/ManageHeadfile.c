@@ -33,18 +33,18 @@ int SetHeadToCommit(const char *headFilePath, const char *commitHash) {
         perror("Failed to open HEAD file for writing");
         return -1;
     }
-    fprintf(file, "%s\n", commitHash);
+    fprintf(file, ".nvcs/refs/commits/%s\n", commitHash);
     fclose(file);
     return 0;
 }  
 
-char *getCurrentCommitHash(const char *headFilePath) {
+char *getCurrentCommitLocation(const char *headFilePath) {
     FILE *file = fopen(headFilePath, "r");
     if (!file) {
         perror("Failed to open HEAD file for reading");
         return NULL;
     }
-    char *commitHash = (char *)malloc(41 * sizeof(char)); 
+    char *commitHash = (char *)malloc(sizeof(".nvcs/refs/commits")+21 * sizeof(char)); 
     if (fgets(commitHash, 41, file) == NULL) {
         perror("Failed to read commit hash from HEAD file");
         fclose(file);
