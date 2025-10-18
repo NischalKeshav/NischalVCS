@@ -33,8 +33,6 @@ struct Index *parseIndexJSON(const char *jsonText) {
         const char *path = file->string;
         cJSON *hashNode = cJSON_GetObjectItem(file, "hash");
         cJSON *modeNode = cJSON_GetObjectItem(file, "mode");
-
-        // ADD NULL CHECKS
         if (!hashNode || !modeNode || !hashNode->valuestring) {
             fprintf(stderr, "Warning: skipping malformed entry\n");
             continue;
