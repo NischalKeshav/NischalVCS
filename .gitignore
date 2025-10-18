@@ -6,3 +6,4 @@ build/
 *.out
 *.so
 *.a     
+*.o
