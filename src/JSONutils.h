@@ -6,8 +6,6 @@
 
 
 
-// Single entry in the index
-// An indexEntry holds the changes for one file in a commit
 struct IndexEntry {
     char *path;   // filename
     char *hash;   // blob SHA-1
