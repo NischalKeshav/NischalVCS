@@ -21,7 +21,4 @@ This is a personal project where I built a simplified version of Git. The goal w
 
 ## Dependencies
 
-This project uses the dirent.h library, which means it only runs on POSIX-compliant systems such as macOS and Linux.\\
-
-
-Thanks to the LazyVim team.  I love this new tech.
+This project uses the dirent.h library, which means it only runs on POSIX-compliant systems such as macOS and Linux. 
