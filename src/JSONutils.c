@@ -167,3 +167,19 @@ struct Index *getCurrentIndex(){
     freeIndex(index);
     return index;
 }
+
+
+
+const char *findHashByFilename(const struct Index *index, const char *filename) {
+    if (!index || !filename || index->entries == NULL) {
+        return NULL;  // Invalid input or empty index
+    }
+
+    for (size_t i = 0; i < index->count; i++) {
+        if (index->entries[i].path && strcmp(index->entries[i].path, filename) == 0) {
+            return index->entries[i].hash;  // Return hash if found
+        }
+    }
+
+    return NULL;  // Not found
+}

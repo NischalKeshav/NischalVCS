@@ -47,4 +47,18 @@ void displayIndex(const struct Index *index);
 void freeIndex(struct Index *index);
 int WriteIndexToJSONFile(const struct Index *index, const char *filename);
 
+/**
+ * Find the hash of a file in an Index by its path.
+ * @param index - Pointer to Index structure to search
+ * @param filename - File name (path) to search for
+ * @return Pointer to hash string if found, or NULL if not found
+ *         (Do not free the returned pointer — it belongs to the Index)
+ */
+const char *findHashByFilename(const struct Index *index, const char *filename);
+
+
+
+
+
+
 #endif // CONVERTJSONTOSTRUCT_H

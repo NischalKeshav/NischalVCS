@@ -6,7 +6,6 @@
 #include <sys/stat.h> // For struct stat (if you plan to use it later)
 
 /**
- * @brief Custom data structure to hold dynamically allocated file paths.
  * * This structure is designed to store an array of string pointers (paths), 
  * along with its current count and allocated capacity for future expansion.
  */
