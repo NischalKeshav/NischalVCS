@@ -2,7 +2,6 @@
 
 This is a personal project where I built a simplified version of Git. The goal was to understand how a version control system works at a low level, including file tracking, commits, and branching. The features below represent the current progress of the project.  
 
----
 
 ## Goals  
 - **Initializing function (`git init`)** – Complete  
@@ -11,7 +10,6 @@ This is a personal project where I built a simplified version of Git. The goal w
 - **Branching (`git checkout -b "name"`)** – In progress  
 - **Reverting (`git revert`)** – In progress  
 
----
 
 ## Usage  
 1. Download the code.  
