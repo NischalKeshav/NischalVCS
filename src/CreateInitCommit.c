@@ -18,7 +18,7 @@ struct IndexEntry createEntry(const char *path, const char *hash, int mode) {
 }
 
 
-struct Index *createTestIndex() {
+struct Index *createInitIndex() {
     struct Index *index = malloc(sizeof(struct Index));
     if (!index) {
         fprintf(stderr, "Failed to allocate Index\n");
@@ -26,7 +26,7 @@ struct Index *createTestIndex() {
     }
     
 
-    index->count = 3;
+    index->count = 0;
     index->entries = malloc(sizeof(struct IndexEntry) * index->count);
     if (!index->entries) {
         fprintf(stderr, "Failed to allocate entries\n");
@@ -44,7 +44,7 @@ int CreateInitCommit() {
     printf("Creating initial commit with message: %s\n", message);
     
 
-    struct Index *index = createTestIndex();
+    struct Index *index = createInitIndex();
     if (!index) {
         fprintf(stderr, "Error: failed to create test index\n");
         return -1;

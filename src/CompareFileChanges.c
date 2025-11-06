@@ -15,9 +15,7 @@ void CompareFileChanges(const char *filePath1, const char *filePath2) {
 }   
 
 
-
 bool are_files_identical(const char *path1, const char *path2) {
-    // Step 1: Compare file metadata (size)
     struct stat st1, st2;
     if (stat(path1, &st1) != 0 || stat(path2, &st2) != 0) {
         perror("Error reading file info");

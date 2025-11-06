@@ -11,13 +11,12 @@
 
 
 
-struct Index *CompareIndexes(struct Index Index1, struct Index Index2) {
+struct Index *CompareIndexes(struct Index *Index1, struct Index *Index2) {
     struct Index *result = malloc(sizeof(struct Index));
     if (result == NULL) {
         return NULL;  
     }
     
-    *result = Index2;
-    
+    *result = *Index2;
     return result;
 }
