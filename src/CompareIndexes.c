@@ -15,8 +15,8 @@ struct Index *CompareIndexes(struct Index *Index1, struct Index *Index2) {
     struct Index *result = malloc(sizeof(struct Index));
     if (result == NULL) {
         return NULL;  
-    }
-    
+	}
+    //pass by ref 
     *result = *Index2;
     return result;
 }

@@ -9,5 +9,6 @@
 #include "GetAllFilesInDir.h"
 #include "CreateIndex.h"
 #include "ManageHeadfile.h"
-struct Index GetPreviousCommit(){ 
+struct Index *GetPreviousCommit(){ 
+		
 }

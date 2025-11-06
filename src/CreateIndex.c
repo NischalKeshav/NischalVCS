@@ -9,6 +9,6 @@
 #include "CreateIndex.h"
 
 int CreateIndex(const char *RepoPath) {
-    printf("Creating index for repository at path: %s\n", RepoPath);
+    printf("Creating index by for repository at path: %s\n", RepoPath);
     return 0;
 }
