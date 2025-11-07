@@ -30,6 +30,7 @@ struct Index *createInitIndex() {
     index->entries = malloc(sizeof(struct IndexEntry) * index->count);
     if (!index->entries) {
         fprintf(stderr, "Failed to allocate entries\n");
+	//neovimtest.
         free(index);
         return NULL;
     }

@@ -13,6 +13,7 @@
 #include "GetAllFilesInDir.h"
 #include "CreateInitCommit.h"
 #include "ManageHeadfile.h"
+#include "CompareIndexes.h"
 struct stat st = {0};
 
 
@@ -57,7 +58,7 @@ int cmd_commit(const char *message) {
 
 int cmd_log(void) {
     printf("Showing commit log\n");
-    
+    CompareIndexes(&NULL_INDEX,&NULL_INDEX); 
     struct Index *index = loadIndexFromFile("new3.json");
     if (index) {
         displayIndex(index);

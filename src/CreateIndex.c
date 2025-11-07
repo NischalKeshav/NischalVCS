@@ -8,7 +8,10 @@
 #include "GetAllFilesInDir.h"
 #include "CreateIndex.h"
 
-int CreateIndex(const char *RepoPath) {
+struct Index CreateIndex(const char *RepoPath) {
     printf("Creating index by for repository at path: %s\n", RepoPath);
-    return 0;
+    FilePaths *Set = GetAllFilesInDir();
+    
+    return NULL_INDEX;
+   
 }

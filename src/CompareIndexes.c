@@ -16,7 +16,9 @@ struct Index *CompareIndexes(struct Index *Index1, struct Index *Index2) {
     if (result == NULL) {
         return NULL;  
 	}
-    //pass by ref 
-    *result = *Index2;
+
+    for (int i=0; Index1->entries->path[i]!=NULL; i++){
+		printf("%c",Index1->entries->path[i]);
+	} 	
     return result;
 }
